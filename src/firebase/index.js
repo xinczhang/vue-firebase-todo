@@ -3,13 +3,12 @@ import * as auth from "firebase/auth";
 import * as firestore from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDzSdZQ9ChhHzrCOT1RmgN051RUS4CKTRE",
-  authDomain: "vue-firebase-todo-meowkita.firebaseapp.com",
-  projectId: "vue-firebase-todo-meowkita",
-  storageBucket: "vue-firebase-todo-meowkita.appspot.com",
-  messagingSenderId: "193652589093",
-  appId: "1:193652589093:web:b3a54bd63c1922c6ddb5cc",
-  measurementId: "G-DXHECCK84D",
+  apiKey: "AIzaSyCPfuLykwcDHGjeXuvHhXWzH2r9Gtql-II",
+  authDomain: "skincare-9915b.firebaseapp.com",
+  projectId: "skincare-9915b",
+  storageBucket: "skincare-9915b.appspot.com",
+  messagingSenderId: "278714093625",
+  appId: "1:278714093625:web:c82b022ed6a61b6960bde8",
 };
 
 const app = initializeApp(firebaseConfig);

@@ -40,17 +40,10 @@ export default {
       await auth
         .signInWithEmailAndPassword(auth.getAuth(app), email, password)
         .then((response) => {
-          if (response.user.emailVerified) {
-            commit("signIn", response.user);
-          } else {
-            throw Error("Email isn't verified.");
-          }
+          commit("signIn", response.user);
         })
         .catch((error) => {
-          if (error.message === "Email isn't verified.") {
-            throw Error("Email isn't verified.");
-          }
-          throw Error("Invalid email or password.");
+          throw Error("Invalid email or password." + error);
         });
     },
     async signInWithGoogle({ commit }) {
