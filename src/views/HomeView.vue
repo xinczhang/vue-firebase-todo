@@ -3,17 +3,19 @@
     <div class="row">
       <div class="col-12 col-md-4 col-lg-3 mb-3 mb-md-0">
         <user-info />
+        <div>
+          <ul class="list-group">
+            <patient-list-item
+              v-for="patientItem in this.getPatientList"
+              :key="patientItem.name"
+              :item="patientItem"
+            />
+          </ul>
+        </div>
       </div>
       <div class="col-12 col-md-8 col-lg-9 mt-2">
         <todo-item-creator />
         <hr />
-        <ul class="list-group">
-          <todo-list-item
-            v-for="todoItem in this.getTodoList"
-            :key="todoItem.header"
-            :item="todoItem"
-          />
-        </ul>
       </div>
     </div>
   </div>
@@ -21,19 +23,19 @@
 
 <script>
 import UserInfo from "@/components/UserInfo.vue";
-import TodoListItem from "@/components/TodoListItem.vue";
+import PatientListItem from "@/components/PatientListItem.vue";
 import TodoItemCreator from "@/components/TodoItemCreator.vue";
 
 export default {
   name: "HomeView",
-  components: { TodoListItem, TodoItemCreator, UserInfo },
+  components: { PatientListItem, TodoItemCreator, UserInfo },
   computed: {
-    getTodoList() {
-      return this.$store.state.todos.todoList;
+    getPatientList() {
+      return this.$store.state.patients.patientList;
     },
   },
   mounted() {
-    this.$store.dispatch("fetchTodoList");
+    this.$store.dispatch("fetchPatientList");
   },
 };
 </script>

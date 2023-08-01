@@ -1,5 +1,12 @@
 <template>
   <div>
+    <ul class="list-group">
+      <report-list-item
+        v-for="reportItem in this.getCurrentPatient.reports"
+        :key="reportItem.id"
+        :item="reportItem"
+      />
+    </ul>
     <div class="form-block mb-3">
       <label class="form-label" for="header">Header</label>
       <input class="form-control" type="text" v-model="this.newTodo.header" />
@@ -22,8 +29,11 @@
 </template>
 
 <script>
+import ReportListItem from "./ReportListItem.vue";
+
 export default {
   name: "TodoItemCreator",
+  components: { ReportListItem },
   data() {
     return {
       newTodo: {
@@ -33,6 +43,15 @@ export default {
         author: "",
       },
     };
+  },
+  computed: {
+    getCurrentPatient() {
+      if (this.$store.state.patients.currentPatient != null) {
+        return this.$store.state.patients.currentPatient;
+      } else {
+        return [];
+      }
+    },
   },
   methods: {
     async addNewTodo() {

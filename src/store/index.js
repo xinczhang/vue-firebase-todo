@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import auth from "./auth";
 import todos from "./todos";
-
+import patients from "./patients";
 export default createStore({
   namespaced: true,
   state: {},
@@ -11,5 +11,6 @@ export default createStore({
   modules: {
     auth,
     todos,
+    patients,
   },
 });
